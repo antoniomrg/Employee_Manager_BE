@@ -30,7 +30,7 @@ public class EmployeeService {
 
     public Employee findEmployeeById(Long id){
         return employeeRepo.findEmployeeById(id)
-                .orElseThrow(() -> new UserNotFoundException());
+                .orElseThrow(() -> new UserNotFoundException(id));
     }
 
     public Employee updateEmployee(Employee employee) {
