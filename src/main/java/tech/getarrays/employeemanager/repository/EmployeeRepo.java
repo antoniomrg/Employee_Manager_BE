@@ -13,4 +13,6 @@ public interface EmployeeRepo extends JpaRepository<Employee, Long> {
 
     @Query("SELECT e FROM Employee e WHERE e.name LIKE %:name%")
     Optional<List<Employee>> findEmployeeByName(@Param("name") String name);
+
+    Optional<Employee> findByEmail(String email);
 }
