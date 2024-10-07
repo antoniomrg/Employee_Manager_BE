@@ -17,6 +17,11 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @Accessors(fluent = true)
+
+/* To manage user details related to authentication,
+ Spring Security provides an Interface named “UserDetails”
+ with properties and methods that the User entity must override the implementation.*/
+
 public class Employee implements Serializable, UserDetails {
 
     @Id
@@ -35,6 +40,7 @@ public class Employee implements Serializable, UserDetails {
    //@Column(nullable = false, updatable = false)
     private String employeeCode;
 
+// The method “getAuthorities()” returns the user’s roles list; it is helpful to manage permissions.
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
         return List.of();

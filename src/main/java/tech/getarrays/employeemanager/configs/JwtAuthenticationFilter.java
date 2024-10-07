@@ -18,6 +18,12 @@ import tech.getarrays.employeemanager.service.JwtService;
 
 import java.io.IOException;
 
+/*For every request, we want to retrieve the JWT token in the header “Authorization”, and validate it:
+
+If the token is invalid, reject the request if the token is invalid or continues otherwise.
+If the token is valid, extract the username, find the related user in the database,
+and set it in the authentication context so you can access it in any application layer.*/
+
 @Component
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private final HandlerExceptionResolver handlerExceptionResolver;

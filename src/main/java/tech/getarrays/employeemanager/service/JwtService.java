@@ -15,8 +15,13 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Service;
 
-@Service
+/*
+To generate, decode, or validate a JSON Web token, we must expose the related methods that use the libraries we installed earlier.
+We will group them into a service class named JwtService.
+*/
 
+
+@Service
 public class JwtService {
     @Value("${security.jwt.secret-key}")
     private String secretKey;

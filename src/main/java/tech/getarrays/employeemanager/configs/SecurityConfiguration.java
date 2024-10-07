@@ -16,6 +16,16 @@ import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
 
 import java.util.List;
 
+/* Define what criteria an incoming request must match before being forwarded to application middleware.
+We want the following criteria:
+
+There is no need to provide the CSRF token because we will use it.
+The request URL path matching /auth/signup and /auth/login doesn't require authentication.
+Any other request URL path must be authenticated.
+The request is stateless, meaning every request must be treated as a new one, even if it comes from the same client or has been received earlier.
+Must use the custom authentication provider, and they must be executed before the authentication middleware.
+The CORS configuration must allow only POST and GET requests.*/
+
 @Configuration
 @EnableWebSecurity
 public class SecurityConfiguration {
@@ -46,6 +56,7 @@ public class SecurityConfiguration {
                                 .requestMatchers("/user/**").hasAnyRole("USER", "ADMIN")
                                 .requestMatchers("/auth/**").permitAll()
                                 .requestMatchers("/test/**").permitAll()
+                                .requestMatchers("/employee/**").permitAll()
 //                                // Specifies that any request not previously matched by the above patterns requires authentication.
                                 .anyRequest().authenticated())
 //                // Configures HTTP Basic Authentication. Customizer.withDefaults() applies the default settings for HTTP Basic Authentication.

@@ -1,9 +1,5 @@
 package tech.getarrays.employeemanager.service;
 
-import lombok.Data;
-import lombok.Value;
-import lombok.val;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.password.PasswordEncoder;
@@ -13,6 +9,9 @@ import tech.getarrays.employeemanager.dtos.RegisterEmployeeDto;
 import tech.getarrays.employeemanager.model.Employee;
 import tech.getarrays.employeemanager.repository.EmployeeRepo;
 
+/*
+This service will contain the logic for registering a new user and authenticating an existing user.
+*/
 @Service
 public class AuthenticationService {
     private final EmployeeRepo employeeRepo;

@@ -5,6 +5,8 @@ import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 import tech.getarrays.employeemanager.model.Employee;
 import tech.getarrays.employeemanager.service.EmployeeService;
@@ -39,6 +41,15 @@ public class EmployeeController {
     @GetMapping("/all")
     public ResponseEntity<List<Employee>> getAllEmployees() {
         return ResponseEntity.ok(employeeService.findAllEmployees());
+    }
+    // getCurrentEmployee (JWT tutorial)
+    @GetMapping("/me")
+    public ResponseEntity<Employee> getAuthenticatedEmployee() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        Employee currentEmployee = (Employee) authentication.getPrincipal();
+
+        return ResponseEntity.ok(currentEmployee);
     }
 
     @Operation(

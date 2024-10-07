@@ -20,12 +20,14 @@ public class AppConfiguration {
         this.employeeRepo = employeeRepo;
     }
 
+    /*    The userDetailsService() defines how to retrieve the user using the UserRepository that is injected.*/
     @Bean
     UserDetailsService userDetailsService() {
         return username -> employeeRepo.findByEmail(username)
                 .orElseThrow(() -> new UsernameNotFoundException("User not found"));
     }
 
+//    The passwordEncoder() creates an instance of the BCryptPasswordEncoder() used to encode the plain user password.
     @Bean
     BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
@@ -36,6 +38,7 @@ public class AppConfiguration {
         return config.getAuthenticationManager();
     }
 
+//    The authenticationProvider() sets the new strategy to perform the authentication.
     @Bean
     AuthenticationProvider authenticationProvider() {
         DaoAuthenticationProvider authProvider = new DaoAuthenticationProvider();
