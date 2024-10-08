@@ -81,27 +81,11 @@
 		</dependency>
 
 	</dependencies>
-
-	<pluginRepositories>
-		<pluginRepository>
-			<id>heroku-repo</id>
-			<url>https://repo.maven.apache.org/maven2/</url>
-		</pluginRepository>
-	</pluginRepositories>
-
-
-
 	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>
-			</plugin>
-
-			<plugin>
-				<groupId>com.heroku.sdk</groupId>
-				<artifactId>heroku-maven-plugin</artifactId>
-				<version>3.0.1</version>
 			</plugin>
 		</plugins>
 	</build>
