@@ -3,6 +3,8 @@ package tech.getarrays.employeemanager.controller;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import io.swagger.v3.oas.annotations.tags.Tag;
+import jakarta.validation.Valid;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.Authentication;
@@ -16,15 +18,14 @@ import java.util.Optional;
 
 @Tag(name = "Employees", description = "Operations related to employees")
 @RestController
-@RequestMapping("/employee")
+@RequestMapping("/employees")
 public class EmployeeController {
-
     private final EmployeeService employeeService;
 
+    @Autowired
     public EmployeeController(EmployeeService employeeService){
         this.employeeService = employeeService;
     }
-
 
     @Operation(
             summary = "Get all employees",
@@ -101,7 +102,7 @@ public class EmployeeController {
     @PostMapping("/add")
     public ResponseEntity<Employee> createEmployee(@RequestBody Employee employee) {
         Employee newEmployee = employeeService.addEmployee(employee);
-        return ResponseEntity.status(201).body(newEmployee);
+        return ResponseEntity.status(HttpStatus.CREATED).body(newEmployee);
     }
 
     @Operation(

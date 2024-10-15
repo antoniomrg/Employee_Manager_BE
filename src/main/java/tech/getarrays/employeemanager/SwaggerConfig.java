@@ -10,7 +10,7 @@ import org.springframework.context.annotation.Configuration;
         info =  @Info(
                 contact = @Contact(
                         name = "Antonio Morgano",
-                        email = "antonio.morgano@aitho.it"
+                        email = "antonio.morgano@yahoo.it"
                 ),
                 description = "OpenAPI documentation for Employee Manager application",
                 title = "Dunder Mifflin Employee Manager API documentation",
