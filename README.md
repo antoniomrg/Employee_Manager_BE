@@ -1,5 +1,6 @@
 ## Employee Manager API
-Simple RESTful API for managing employee data, built using Spring Boot. The application allows CRUD (Create, Read, Update, Delete) operations on employee records, with features such as searching for employees by name or email, and automatic employee code generation.
+Simple RESTful API for managing employee data, built using Spring Boot. The application allows CRUD (Create, Read, Update, Delete) operations on employee records, with features such as searching for employees by name or email, and automatic employee code generation. (The front-end code for this application can be found in a separate repository: https://github.com/antoniomrg/Employee_Manager_FE.git)
+
 
 ### Features
 
@@ -23,5 +24,3 @@ Java, Spring Boot, Spring Data JPA, MySQL, Swagger/OpenAPI, Lombok, Maven.
 - **Exception Handling**: A global exception handler captures errors like "User Not Found" and returns meaningful responses to the client.
 - **Swagger Configuration**: The SwaggerConfig class provides OpenAPI documentation for easy understanding of the API.
 - **CORS Configuration**: The application includes a CorsFilter bean in the main class to handle cross-origin requests, allowing connections from http://localhost:3000.
-
-The front-end code for this application can be found in a separate repository: https://github.com/antoniomrg/Employee_Manager_FE.git
